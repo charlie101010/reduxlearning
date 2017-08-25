@@ -9,12 +9,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-        {console.log(this.props.store.getState())}
           <img src={logo} className="App-logo" alt="logo" />
           <h2>{this.props.counter}</h2>
         </div>
         <p className="App-intro">
         <button onClick={this.addNumber}>Add</button>
+        <br/>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
@@ -29,6 +29,11 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
+function mapStateToProps (counter) {
+
+  return {counter}
+}
 
 
-export default connect(mapDispatchToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
